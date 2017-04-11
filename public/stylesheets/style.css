@@ -5,6 +5,8 @@ body {
 
 .auth_block {
   border: dashed;
+  display: block;
+  margin: 20%;
 }
 
 a {
