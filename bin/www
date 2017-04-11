@@ -1,12 +1,26 @@
 #!/usr/bin/env node
 
 /**
- * Module dependencies.
+ * Инициализация модулей.
  */
 
 var app = require('../app');
 var debug = require('debug')('autoshop:server');
 var http = require('http');
+var db = require('pg');
+
+//Переменная с данными для подключения к бд
+var db_config = {
+    user: 'mmoenejzepxizm', //Имя пользователся для подключения к базе данных
+    databases: 'dael5g90uj2eer', //Название базы данных
+    password: 'a553b2d3a9f2131a73baca48ea9f82decb5d68f07d93eb8ae175eb3c09712a44', //Пароль для подключения
+    host: 'localhost', //Хост базы данных
+    port: 5432, //Порт подключения
+    max: 10, // Махимальное кол-во потоков
+    idleTimeoutMillis: 30000 //Время простоя
+};
+
+bd.init(db_config); //Инициализация базы данных
 
 /**
  * Get port from environment and store in Express.
