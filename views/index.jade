@@ -1,6 +1,12 @@
 extends layout
 
 block content
-  div#auth_block
-    h1#main_label= title
-    p Welcome to #{title}
+    h1#main_label Добро пожаловать #{title}!
+    div#auth_block
+        div#auth_input
+            p#auth_label Пожалуйста, авторизируйтесь
+            input.auth_input(type='text', placeholder='Введите логин')#login
+            input.auth_input(type='text', placeholder='Введите пароль')#password
+            button.button#auth_button Войти
+            button.button#reg_button РегистрациSя
+    footer Made by AfterShock <dromplay@gmail.com>
