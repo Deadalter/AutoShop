@@ -3,6 +3,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+#main_label {
+    margin: 20%;
+}
+
 #auth_block {
   border: dashed;
   display: block;
