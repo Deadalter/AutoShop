@@ -1,7 +1,7 @@
 /**
  * Created by deadalter on 11.04.2017.
  */
-const pg = require('pg');
+const pg = require('pg'); //Запрашиваем модуль для работы с PostgreSQL
 
 //Переменная с данными для подключения к бд
 var db_config = {
@@ -16,11 +16,11 @@ var db_config = {
 
 var pool = new pg.Pool(db_config); //Инициализация базы данных
 
-module.exports.query = function (text, values, callback) {
+module.exports.query = function (text, values, callback) { //Экспорт функции выполнения запроса в бд
     console.log('query:', text, values);
     return pool.query(text, values, callback);
 };
 
-module.exports.connect = function (callback) {
+module.exports.connect = function (callback) { //Экспорт функции подключения к базе данных
     return pool.connect(callback);
 };

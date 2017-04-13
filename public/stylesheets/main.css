@@ -1,0 +1,12 @@
+#top_menu {
+    border: dashed;
+    display: inline-block;
+    position: absolute;
+}
+
+#work_list {
+    border: dashed;
+    display: block;
+    position: relative;
+    float: left;
+}

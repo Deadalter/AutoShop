@@ -4,35 +4,39 @@ body {
 }
 
 button {
-    display: inline-block;
-}
-
-.auth_input {
+    display: flex;
     margin: 3px auto;
-    display: block;
+    width: auto;
 }
 
 #main_label {
     width: 450px;
-    height: auto;;
+    height: auto;
     margin: 10px auto;
 }
 
 #auth_block {
-    min-width: 100%;
-    margin-top: 100px;
-    overflow: hidden;
+    display: block;
+    width: 500px;
+    margin: 100px auto;
 }
 
 #auth_label {
     width: 200px;
     height: auto;
     margin: 3px auto;
-    overflow: hidden;
+    display: inherit;
 }
 
-#auth_input{
+#auth_div {
+    display: inherit;
     width: 500px;
     height: 100px;
     margin: 0 auto;
+}
+
+.auth_input {
+    display: inherit;
+    margin: 3px auto;
+    display: block;
 }

@@ -3,10 +3,11 @@ extends layout
 block content
     h1#main_label Добро пожаловать #{title}!
     div#auth_block
-        div#auth_input
-            p#auth_label Пожалуйста, авторизируйтесь
+        p#auth_label Пожалуйста, авторизируйтесь
+        div#auth_div
             input.auth_input(type='text', placeholder='Введите логин')#login
             input.auth_input(type='text', placeholder='Введите пароль')#password
-            button.button#auth_button Войти
-            button.button#reg_button РегистрациSя
+            button.button#auth_button(onclick='login()') Войти
     footer Made by AfterShock <dromplay@gmail.com>
+
+    script.
