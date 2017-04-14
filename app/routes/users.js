@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-//global.current_user;
-/* GET home page. */
+/* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Автосервис' });
+  res.send('respond with a resource');
 });
+
 
 module.exports = router;

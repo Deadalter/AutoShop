@@ -1,42 +1,6 @@
 body {
+    width: 100%;
+    height: 100%;
     margin: auto;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-button {
-    display: flex;
-    margin: 3px auto;
-    width: auto;
-}
-
-#main_label {
-    width: 450px;
-    height: auto;
-    margin: 10px auto;
-}
-
-#auth_block {
-    display: block;
-    width: 500px;
-    margin: 100px auto;
-}
-
-#auth_label {
-    width: 200px;
-    height: auto;
-    margin: 3px auto;
-    display: inherit;
-}
-
-#auth_div {
-    display: inherit;
-    width: 500px;
-    height: 100px;
-    margin: 0 auto;
-}
-
-.auth_input {
-    display: inherit;
-    margin: 3px auto;
-    display: block;
 }

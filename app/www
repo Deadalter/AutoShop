@@ -7,32 +7,29 @@
 var app = require('../app');
 var debug = require('debug')('autoshop:server');
 var http = require('http');
+var config = require('../app/config');
 
 
 /**
- * Get port from environment and store in Express.
+ * Get port from environment and store in Express. Получения порта из окружения или установления порта 300 и присвоения этого порта вприлодению
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+//var port = normalizePort(process.env.PORT || '3000');
+app.set('port', config.server.port);
+
+var server = http.createServer(app);//Создние HTTP сервера для приложения
 
 /**
- * Create HTTP server.
+ * Listen on provided port, on all network interfaces. Устанавливаем прослушивания выбранного порта для нашего веб-сервера на всех интерфейсах
  */
 
-var server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port);
+server.listen(config.server.port);
 server.on('error', onError);
 server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
- */
+
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
@@ -49,6 +46,7 @@ function normalizePort(val) {
 
   return false;
 }
+ */
 
 /**
  * Event listener for HTTP server "error" event.
