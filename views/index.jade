@@ -5,7 +5,7 @@ block content
     div#auth_block
         p#auth_label Пожалуйста, авторизируйтесь
         div#auth_div
-            form#auth(method='post', action='/auth')
+            form#auth(method='post', action='/au')
                 div.form-group
                     label(for='login') Логин
                     input#login.auth_input.form-control(type='text', name='login', form='auth', placeholder='Введите логин')
@@ -13,4 +13,4 @@ block content
                     label(for='password') Пароль
                     input#password.auth_input.form-control(type='password', name='password', form='auth', placeholder='Введите пароль')
                 button#auth_button.btn.btn-default(type='submit', form='auth') Войти
-                button#reg_button.btn.btn-default(type='submit', form='auth') Войти
+            button#reg_button.btn.btn-default(type='submit', action='/reg') Зарегистрироваться

@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema( {
     login: String ,
     password: String,
-    type: Number
+    type: String
 });
 
 module.exports.userSchema = userSchema;
