@@ -11,7 +11,7 @@ var config = require('../app/config');
 
 
 /**
- * Get port from environment and store in Express. Получения порта из окружения или установления порта 300 и присвоения этого порта вприлодению
+ * Get port from environment and store in Express. Получения порта из окружения или установления порта 3000 и присвоения этого порта вприлодению
  */
 
 //var port = normalizePort(process.env.PORT || '3000');
