@@ -23,7 +23,7 @@ var server = http.createServer(app);//Создние HTTP сервера для 
  * Listen on provided port, on all network interfaces. Устанавливаем прослушивания выбранного порта для нашего веб-сервера на всех интерфейсах
  */
 
-server.listen(config.server.port);
+server.listen(process.env.PORT || config.server.port);
 server.on('error', onError);
 server.on('listening', onListening);
 
