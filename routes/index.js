@@ -3,24 +3,37 @@ var router = express.Router();
 var Models = require('../models/models');
 
 
-//global.current_user;
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Автосервис', style: 'index', reg: false });
+    res.render('index', {
+        title: 'Автосервис',
+        style: 'index'
+    });
 });
 
 router.get('/main', function(req, res, next) {
-    res.render('main', { title: 'Автосервис: Главная', style: 'main'});
+    res.render('main', {
+        title: 'Автосервис: Главная',
+        style: 'main'
+    });
+});
+
+router.get('/reg', function(req, res, next) {
+    res.render('registration', {
+        title: 'Автосервис - Регистрация',
+        style: 'registrtion',
+        user: new Models.User()
+    });
 });
 
 router.post('/auth', function(req, res, next) {
     var user = Models.User.findOne({name: req.body.login});
-    console.log(Models.User.findOne({name: req.body.login}));
-    if(user){
+    console.log(user);
+    if(user && user.authenticate(req.body.password)){
         res.redirect('/main');
     }
     else {
-        res.render('index', { title: 'Автосервис', style: 'index', reg: false });
+        res.render('index', { title: 'Автосервис', style: 'index'});
     }
 });
 
