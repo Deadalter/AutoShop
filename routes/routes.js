@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Models = require('../models/models');
+var Users = require('../models/models').User;
 
 
 /* GET home page. */
@@ -21,36 +21,37 @@ router.get('/main', function(req, res, next) {
 router.get('/reg', function(req, res, next) {
     res.render('registration', {
         title: 'Автосервис - Регистрация',
-        style: 'registrtion',
-        user: new Models.User()
+        style: 'index'
     });
 });
 
 router.post('/auth', function(req, res, next) {
-    var user = Models.User.findOne({name: req.body.login});
-    console.log(user);
-    if(user && user.authenticate(req.body.password)){
-        res.redirect('/main');
-    }
-    else {
-        res.render('index', { title: 'Автосервис', style: 'index'});
-    }
+    Users.findOne({login: req.body.login}, function (err, user){
+        if(user && user.authenticate(req.body.password)){
+            //req.session.user_id = user.id;
+            console.log(user);
+            res.redirect('/main');
+        } else {
+            res.redirect('/');
+        }
+    });
 });
 
 router.post('/reg', function(req, res, next) {
     console.log(req.body);
-    var newUser = new Models.User({
-        name: req.body.login,
-        password: req.body.password,
-        type: 'admin'
+    var uLogin = req.body.login;
+    var newUser = new Users({
+        login: req.body.login,
+        password: req.body.password
     });
     newUser.save(function(err){
-        console.log('User ${req.body.login} has created!');
-        res.render('index', { title: 'Автосервис', style: 'index', reg: true });
         if(err){
             console.error(err);
-            res.render('index', { title: 'Автосервис', style: 'index', reg: true, regerr: true });
-        }});
+            res.redirect('/');
+        }
+        console.log('User ${uLogin} has created!');
+        res.redirect('/');
+    });
 });
 
 

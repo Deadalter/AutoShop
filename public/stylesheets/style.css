@@ -1,7 +1,8 @@
 body {
-    width: 100%;
-    height: 100%;
-    margin: auto;
+    margin: 0;
+    padding-top: 50px;
+    padding-botom: 50px;
+    box-sizing: border-box;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background: url('/public/images/bg.jpg');
 }

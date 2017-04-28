@@ -12,8 +12,7 @@ button {
 
 #auth_block {
     display: block;
-    width: 500px;
-    margin: 100px auto;
+    margin: 50px auto;
 }
 
 #auth_label {
@@ -26,13 +25,11 @@ button {
 #auth_div {
     display: inherit;
     width: 500px;
-    height: 100px;
-    margin: 0 auto;
+    margin: 50px auto;
 }
 
 
 .auth_input {
     display: inherit;
     margin: 3px auto;
-    display: block;
 }

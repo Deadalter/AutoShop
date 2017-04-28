@@ -3,6 +3,7 @@
  */
 var mongoose = require('mongoose');
 var Users = require('../models/users');
+var Sessions = require('../models/sessions');
 var Orders = require('../models/orders');
 var config = require('../app/config');
 var url = 'mongodb://'+config.db.user+':'+config.db.password+'@ds159880.mlab.com:'+config.db.port+'/'+config.db.databases;
@@ -17,7 +18,9 @@ db.once("open", function callback () {
 
 var User = mongoose.model("Users", Users.userSchema);
 var Order = mongoose.model("Orders", Orders.orderSchema);
+var Session = mongoose.model('Sessions', Sessions.sessionSchema);
 
 
 module.exports.User = User;
+module.exports.Session = Session;
 module.exports.Order = Order;
