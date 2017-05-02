@@ -1,8 +1,8 @@
 /**
  * Created by deadalter on 25.04.2017.
  */
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
 var orderSchema = new Schema({
     name: String,

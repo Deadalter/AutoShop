@@ -2,9 +2,11 @@
  * Created by deadalter on 13.04.2017.
  */
 
-var config = {
+var port = 3000
+
+var production = {
     server : {
-        port: 3000 //Порт приложения
+        port: port //Порт приложения
     },
     db : {
         user: 'db_admin', //Имя пользователся для подключения к базе данных
@@ -15,4 +17,18 @@ var config = {
     }
 };
 
-module.exports = config;
+var localhost = {
+    server : {
+        port: port
+    },
+    db : {
+        user: 'admin-username',
+        database: 'autorepair',
+        password: 'admin-password',
+        host: 'localhost',
+        port: 27017
+    }
+};
+
+module.exports.confProduction = production;
+module.exports.confLocal = localhost;

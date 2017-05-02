@@ -4,23 +4,19 @@ extends layout
 
 block content
     //TODO: Make nice view
-    nav.navbar.navbar-default(role='navigation')
-        div.container-fluid
-            div.navbar-header
 
-            div#navbar.collapse.navbar-collapse
-                ul.nav.navbar-nav
-                    li.active
-                        a(href='#') Главная
-                    li
-                        a(href='#') Тест
-                    li
-                        a(href='#') Тест
-                    li
-                        a(href='#') Тест
-    div#main
 
-        div#work_list
-        div#rightside_block
-        div#rightside_footerblock
-        div#footer
+    nav.navbar
+    div#main.container-fluid
+        div.row
+            div#left_block.col-sm-3.col-md-2.sidebar
+                ul.nav.nav-pills.flex-column
+                    - var x = 3;
+                    - for (var i=1; i<=x; i++){
+                    li.nav-item
+                        a Боковая панель
+                    - }
+            div#work_list
+            div#rightside_block
+            div#rightside_footerblock
+            div#footer

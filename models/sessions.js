@@ -2,7 +2,7 @@
  * Created by deadalter on 28.04.2017.
  */
 var mongoose = require('mongoose'),
-    Schema = mongoose.schema;
+    Schema = mongoose.Schema;
 
 var sessionSchema = new Schema({
     login: {type: String, index: true},
@@ -29,7 +29,7 @@ sessionSchema.virtual('id')
 
 sessionSchema.virtual('cookieValue')
     .get(function(){
-        return JSON.stringify({ email: this.email, token: this.token, series: this.series });
+        return JSON.stringify({ login: this.email, token: this.token, series: this.series });
     });
 
 module.exports.sessionSchema = sessionSchema;

@@ -9,4 +9,6 @@
     display: block;
     position: relative;
     float: left;
+    height: 100px;
+    width: 200px;
 }
