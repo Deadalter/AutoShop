@@ -27,7 +27,7 @@ router.get('/', loadUser, function(req, res, next) {
 
 router.get('/login', function(req, res, next){
     res.render('index', {
-        title: 'Аутосервис',
+        title: 'Автосервис',
         style: 'index'
     });
 });
