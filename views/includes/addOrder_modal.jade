@@ -1,0 +1,25 @@
+//
+   Created by deadalter on 03.05.2017.
+div#newOrderDia.modal.fade
+    div.modal-dialog
+        div.modal-content
+            div.modal-header
+                button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+                h4.modal-title Добавить заказ
+        div.modal-body
+            form#newOrder(method='post', action='/order/new')
+                div.form-group
+                    label(for='orderName') Название заказа
+                    input#orderName.form-control(type='text', name='orderName', form='newOrder', placeholder='')
+                div.form-group
+                    label(for='orderDesc') Описание
+                    textarea#orderDesc.form-control(name='orderDesc', form='newOrder', placeholder='')
+                div.form-group
+                    label(for='vin') VIN
+                    input#vin.form-control(type='text', name='vin', form='newOrder', placeholder='')
+                div.form-group
+                    label(for='carModel') Модель автомобиля
+                    input#carModel.form-control(type='text', name='carModel', form='newOrder', placeholder='')
+        div.modal-footer
+            button.btn.btn-default(type="button", data-dismiss="modal") Закрыть
+            button#applyBtn.btn.btn-primary(type='submit', form='newOrder') Добавить

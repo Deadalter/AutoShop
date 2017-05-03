@@ -1,0 +1,49 @@
+//
+   Created by deadalter on 03.05.2017.
+extends layout
+
+block content
+
+    include includes/addClient_modal
+    include includes/addOrder_modal
+
+    script.
+        $(document).ready(function () {
+            $('#newClientModal').click(function () {
+                $('#newClientDia').modal('show');
+            });
+
+            $('#addOrder').on('click', function(){
+                $('#newOrderDia').modal('show');
+            });
+        });
+
+    include includes/main_navbar
+    div#main.container-fluid.wrapper
+        div#left_block.col-sm-3.col-md-2.sidebar
+            ul.nav.nav-pills.flex-column
+                li.nav-item: a(href='/clients/all') Все клиенты
+                li.nav-item: a(href='/clients') Только мои
+            ul.nav.nav-pills.flex-column
+                li.nav-item: a#newClientModal(href='#') Добавить клиента
+        div#client_list.col-md-8
+            h1.page-header Клиенты
+            form#clientSearch.form-search(method='post', action='/clients/find')
+                input#clientQuery.input-medium.search-query(type='text', form='clientSearch', name='clientQuery', placeholder='Введите фамилию')
+                button.btn(type='submit', form='clientSearch') Поиск
+            table.table
+                thead
+                    tr
+                        th Фамилия
+                        th Имя
+                        th Отчество
+                        th Работы
+                        th Добавить работу
+                tbody
+                - each client in clients
+                    tr(data=client._id)
+                        td=client.lastName
+                        td=client.firstName
+                        td=client.middleName
+                        td: button.btn.btn-sm.btn-primary Показать
+                        td: button#addOrder.btn.btn-sm.btn-success Создать

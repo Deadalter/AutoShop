@@ -16,17 +16,17 @@ var routes = require('./routes/routes');
 var app = express();
 
 
-// view engine setup Устанавливаем движек
+// view engine setup Устанавка папки с представлениями и подключение Jade
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
+
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); //иконка сайта
+app.use(logger('dev')); //Включение логгера
+app.use(bodyParser.json()); //Подключение парсера (для получения json из форм)
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(session({
+app.use(cookieParser()); //Подключения парсера cookie (для сессий)
+app.use(session({  //Подключение сессий (указывается сервертная фраза, хранилише сессий, ключ)
     secret: 'asdf',
     store: new sessionStore({
         url: 'mongodb://'+config.db.user+':'+config.db.password+'@'+config.db.host+':'+config.db.port+'/'+config.db.databases
@@ -35,13 +35,13 @@ app.use(session({
     saveUninitialized: true,
     resave: false
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));  //Подключение папки со статическимим файлами (стилями, скриптами, изображениями)
 
 
-app.use('/', routes);
+app.use('/', routes); //Перенаправление всех запросов на роутер (routes.js)
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function(req, res, next) {  //Подключение модуля для ощибки 404
   var err = new Error('Not Found');
   err.status = 404;
   next(err);

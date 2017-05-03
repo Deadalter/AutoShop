@@ -1,14 +1,19 @@
+#main {
+    padding: 20px;
+}
+
 #top_menu {
-    border: dashed;
     display: inline-block;
     position: absolute;
 }
 
+#left_block {
+    height: 100%;
+}
+
 #work_list {
-    border: dashed;
     display: block;
     position: relative;
     float: left;
-    height: 100px;
-    width: 200px;
+    height: 100%;
 }

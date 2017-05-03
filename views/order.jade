@@ -1,0 +1,15 @@
+//
+   Created by deadalter on 03.05.2017.
+extends layout
+
+block content
+
+    include includes/main_navbar
+
+    div#main.container-fluid.wrapper
+        div#left_block.col-sm-3.col-md-2.sidebar
+            ul.nav.nav-pills.flex-column
+                li.nav-item: a#newOrderModal(href='#') Добавить заказ
+        div#work_list.col-md-8
+            h1.page-header Заказ #{order.id}
+            div.col-md-6

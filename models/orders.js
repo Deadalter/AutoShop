@@ -6,9 +6,13 @@ var mongoose = require('mongoose'),
 
 var orderSchema = new Schema({
     name: String,
-    user: {type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
+    master: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'},
     dateStart: {type: Date, default: Date.now},
     dateFinish: Date,
+    itComplite: String,
+    client: {type: mongoose.Schema.Types.ObjectId, ref: 'Clients'},
+    vin: String,
+    carModel: String,
     makedWork: [{
         name: String,
         dateMaked: {type: Date, default: Date.now},
@@ -19,7 +23,14 @@ var orderSchema = new Schema({
             cost: Number
         }]
     }],
+    totalPrice: Number,
     desc: String
 });
+
+orderSchema.virtual('id')
+    .get(function(){
+        return this._id.toHexString();
+    });
+
 
 module.exports.orderSchema = orderSchema;

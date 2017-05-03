@@ -1,0 +1,19 @@
+//
+   Created by deadalter on 03.05.2017.
+div#newStoreItemDia.modal.fade
+    div.modal-dialog
+        div.modal-content
+            div.modal-header
+                button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+                h4.modal-title Добавить запчасть
+        div.modal-body
+            form#newItem(method='post', action='/store/newitem')
+                div.form-group
+                    label(for='itemName') Наименование запчасти
+                    input#itemName.form-control(type='text', name='itemName', form='newItem', placeholder='')
+                div.form-group
+                    label(for='itemCounts') Колличество
+                    input#itemCounts.form-control(type='text',name='itemCounts', form='newItem', placeholder='')
+        div.modal-footer
+            button.btn.btn-default(type="button", data-dismiss="modal") Закрыть
+            button#applyBtn.btn.btn-primary(type='submit', form='newItem') Добавить

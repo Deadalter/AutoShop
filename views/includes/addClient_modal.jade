@@ -1,0 +1,20 @@
+div#newClientDia.modal.fade
+    div.modal-dialog
+        div.modal-content
+            div.modal-header
+                button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+                h4.modal-title Добавить клиента
+        div.modal-body Содержимое модального окна
+            form#newClient(method='post', action='/client/new')
+                div.form-group
+                    label(for='lastName') Фамилия
+                    input#lastName.form-control(type='text', name='lastName', form='newClient', placeholder='')
+                div.form-group
+                    label(for='firstName') Имя
+                    input#firstName.form-control(type='text', name='firstName', form='newClient', placeholder='')
+                div.form-group
+                    label(for='middleName') Отчество
+                    input#middleName.form-control(type='text', name='middleName', form='newClient', placeholder='')
+        div.modal-footer
+            button.btn.btn-default(type="button", data-dismiss="modal") Закрыть
+            button#applyBtn.btn.btn-primary(type='submit', form='newClient') Добавить

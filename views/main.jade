@@ -5,18 +5,39 @@ extends layout
 block content
     //TODO: Make nice view
 
+    include includes/addOrder_modal
 
-    nav.navbar
-    div#main.container-fluid
-        div.row
+    script.
+        $(document).ready(function(){
+            $('#newOrderModal').click(function(){
+                $('#newOrderDia').modal('show');
+            });
+        });
+
+
+    include includes/main_navbar
+    div#main.container-fluid.wrapper
             div#left_block.col-sm-3.col-md-2.sidebar
                 ul.nav.nav-pills.flex-column
-                    - var x = 3;
-                    - for (var i=1; i<=x; i++){
-                    li.nav-item
-                        a Боковая панель
-                    - }
-            div#work_list
-            div#rightside_block
-            div#rightside_footerblock
-            div#footer
+                    li.nav-item: a#newOrderModal(href='#') Добавить заказ
+            div#work_list.col-md-8
+                h1.page-header Заказы
+                table.table
+                    thead
+                        tr
+                            th Название
+                            th Автомобиль
+                            th Описание
+                            th Клиент
+                            th: i.icon-trash
+                            th: i.icon-trash
+                    tbody
+                    - each order in orders
+                        tr(data=order.id)
+                            td=order.name
+                            td=order.carModel
+                            td=order.desc
+                            td=order.client
+                            td: button.btn.btn-sm.btn-danger Удалить
+                            td: a(href='/order/'+order.id) Редактировать
+
