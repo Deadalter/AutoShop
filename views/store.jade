@@ -11,6 +11,22 @@ block content
             $('#newStoreItemModal').click(function () {
                 $('#newStoreItemDia').modal('show');
             });
+
+            $('.delStoreItem').on('click', function(){
+                var id = $(this).parents('tr').data('id');
+                console.log(id);
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/store/del',
+                    data: {
+                        id: id
+                    },
+                    success: function(data){
+                        console.log(data)
+                    }
+                });
+            });
+
         });
 
     include includes/main_navbar
@@ -28,10 +44,10 @@ block content
                         th: i.icon-trash
                 tbody
                 - each item in store
-                    tr(data=item._id)
+                    tr(data-id=item.id)
                         td=item.itemName
                         td=item.count
-                        td: button.btn.btn-sm.btn-danger Удалить
+                        td: button.delStoreItem.btn.btn-sm.btn-danger Удалить
 
 
 

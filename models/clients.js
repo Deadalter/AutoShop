@@ -14,5 +14,9 @@ var clientSchema = new Schema({
     master: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'}
 });
 
+clientSchema.virtual('id')
+    .get(function(){
+        return this._id.toHexString();
+    });
 
 module.exports.clientSchema = clientSchema;

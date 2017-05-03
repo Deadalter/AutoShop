@@ -1,0 +1,21 @@
+
+.col-md
+h1.page-header Заказы
+table.table
+    thead
+        tr
+            th Название
+            th Автомобиль
+            th Описание
+            th Клиент
+            th: i.icon-trash
+            th: i.icon-trash
+    tbody
+    - each order in orders
+        tr(data=order.id)
+            td=order.name
+            td=order.carModel
+            td=order.desc
+            td=order.client
+            td: button.btn.btn-sm.btn-danger Удалить
+            td: a(href='/order/' + order.id) Редактировать

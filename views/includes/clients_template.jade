@@ -1,0 +1,21 @@
+h1.page-header Клиенты
+form#clientSearch.form-search(method='post', action='/clients/find')
+    input#clientQuery.input-medium.search-query(type='text', form='clientSearch', name='clientQuery', placeholder='Введите фамилию')
+    button.btn(type='submit', form='clientSearch') Поиск
+table.table
+    thead
+        tr
+            th Фамилия
+            th Имя
+            th Отчество
+            th Работы
+            th Добавить работу
+    tbody
+    - each client in clients
+        tr(data=client._id)
+            td=client.lastName
+            td=client.firstName
+            td=client.middleName
+            td: button.btn.btn-sm.btn-primary Показать
+            td: button#addOrder.btn.btn-sm.btn-success Создать
+

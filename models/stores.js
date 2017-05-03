@@ -9,5 +9,9 @@ var storeSchema = new Schema({
     count: Number
 });
 
+storeSchema.virtual('id')
+    .get(function(){
+        return this._id.toHexString();
+    });
 
 module.exports.storeSchema = storeSchema;

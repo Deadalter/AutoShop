@@ -1,11 +1,14 @@
-//
-   Created by deadalter on 03.05.2017.
-
 - var navBar = {'Главная':'/main', 'Склад':'/store', 'Клиенты': '/clients'};
 
-nav.navbar.navbar-default
+nav.navbar.navbar-inverse
     ul.nav.navbar-nav.navbar-collapse
+        li.nav-item
+            a(href='#') Автомастерская
+                span.glyphicon.glyphicon-cog
         -each rest,item in navBar
             li.nav-item: a(href=rest)=item
     ul.nav.navbar-nav.navbar-collapse.navbar-right
+        li.nav-item
+            a(href='#')
+                span.glyphicon.glyphicon-user
         li.nav-item: a(href='/logout') Выход

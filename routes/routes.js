@@ -5,6 +5,7 @@ var Orders = require('../models/models').Order;
 var Clients = require('../models/models').Client;
 var Store = require('../models/models').Store;
 var Sessions = require('../models/models').Session;
+var ObjectID = require('mongodb').ObjectID;
 
 
 function loadUser(req, res, next) {
@@ -22,10 +23,22 @@ function loadUser(req, res, next) {
     }
 }
 
+function getAllClientOrder(clientId){
+    Orders.find({client: clientId}, function(err, orders){
+        return orders;
+    });
+}
+
+function getAllClients(){
+    Clients.find({}, function(err, clients){
+        return clients;
+    });
+}
+
 
 /* GET home page. */
 router.get('/', loadUser, function(req, res, next) {
-    res.redirect('/main');
+    res.redirect('/clients');
 });
 
 router.get('/login', function(req, res, next){
@@ -191,6 +204,16 @@ router.post('/store/newitem', function(req, res, next) {
             console.error(err);
         }
         res.redirect('/store');
+    });
+});
+
+router.delete('/store/del', function(req, res, next){
+    Store.findOne({id: req.body.id}, function(err, item){
+        if(err){
+            console.log(err);
+            res.send(err);
+        }
+        console.log(item);
     });
 });
 
